@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xforms xmlns:xf="http://www.w3.org/2002/xforms">
+	<form title="Форма в формате XForms">
+		<model>
+			<instance>
+				<data xmlns="">
+					<!--Значения полей по умолчанию-->	
+					<def-text>Default text value</def-text>
+					<def-number>2</def-number>
+					<def-hidden>Default hidden value</def-hidden>
+				</data>
+			</instance>
+			<!--Ограничения полей-->
+			<bind nodeset="def-text" length="20" required="true" regexp="[A-Za-z\s]+"/>
+			<bind nodeset="def-number" min="1" max="10" required="false"/>
+			<submission method="get" id="xform"/>
+		</model>
+		<fields>
+			<input ref="def-text" name="text1" type="text">
+				<label>Текстовое поле (латиница с пробелами, не более 20 символов, обязательное поле):</label>
+			</input>
+			<input ref="def-number" name="number1" type="number">
+				<label>Числовое поле (число от 1 до 10):</label>
+			</input>
+			<input type="checkbox" name="checkbox1">
+				<label>Чекбокс:</label>
+			</input>
+			<select name="select1">
+				<label>Выпадающий список:</label>
+				<option>Первый элемент</option>
+				<option>Второй элемент</option>
+				<option>Последний элемент</option>
+			</select>
+			<input ref="def-hidden" type="hidden" name="hidden1">
+				<label>Скрытое поле. Эта надпись показываться не будет</label>
+			</input>
+			<submit submission="xform">
+				<label>Отправить данные</label>
+			</submit>
+		</fields>
+	</form>
+</xforms>

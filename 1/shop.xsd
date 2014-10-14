@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+annotation - корневой элемент
+	section - список новостей, может быть от 0 до бесконечности
+	section@id - обязательный атрибут числового типа
+    внутри section разрешены
+	1. только один title, без вложений
+    2. Один и более para, без вложений
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="announcements">
+		<xs:annotation>
+			<xs:documentation>Список новостей платежных форм</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+		  <xs:sequence>
+			<xs:element name="section" minOccurs="0" maxOccurs="unbounded">
+			   <xs:annotation>
+				<xs:documentation>Да, новостей может и не быть</xs:documentation>
+			  </xs:annotation>
+			  <xs:complexType>
+				<xs:sequence>
+				  <xs:element type="xs:string" name="title" maxOccurs="1" minOccurs="1">
+					  <xs:annotation>
+						<xs:documentation>Заголовок обязателен для каждого объявления</xs:documentation>
+					</xs:annotation>
+				  </xs:element>
+				  <xs:element type="xs:string" name="para" maxOccurs="unbounded" minOccurs="1">
+					   <xs:annotation>
+						<xs:documentation>Текст объявления тоже должен быть, хотя бы в одном теге para</xs:documentation>
+					</xs:annotation>
+				  </xs:element>
+				</xs:sequence>
+				<xs:attribute type="xs:byte" name="id" use="required"/>
+			  </xs:complexType>
+			</xs:element>
+		  </xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

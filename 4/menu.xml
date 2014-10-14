@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- Информация о текущем запросе пользователя -->
+	<request>
+		<host>mysite.com</host>
+		<url>/about</url>
+	</request>
+	<!-- Структура проекта -->
+	<project>
+		<page name="Главная">/</page>
+		<page name="Каталог">/catalog</page>
+		<page name="О нас">/about</page>
+		<page name="Контакты">/contacts</page>
+	</project>
+</root>
